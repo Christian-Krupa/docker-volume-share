@@ -1,0 +1,15 @@
+version: '2'
+services:
+  phpfiles:
+      build:
+        context: .
+        dockerfile: Dockerfile
+  nginx:
+      container_name: nginx
+      build:
+        context: .
+        dockerfile: DockerfileNginx
+      ports:
+        - "8080:80"
+      volumes_from:
+        - phpfiles
